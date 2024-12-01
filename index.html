@@ -1,22 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Page <Title></Title>
-            <meta charset="UTF-8" />
 
-</title>
-    </head>
-    <body>
+<head>
+    <title>Page <Title></Title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=calendar_month" />
+        <style>
+            .material-symbols-outlined {
+              font-variation-settings:
+              'FILL' 1,
+              'wght' 300,
+              'GRAD' 4,
+              'opsz' 10
+            }
+            </style>
+    </title>
+</head>
 
-        <h1>this is a Heading1</h1>
-        <h2>this is a Heading2</h2>
-        <h3>this is a Heading3</h3>
-        <h4>this is a Heading4</h4>
-        <h5>this is a Heading5</h5>
-        <h6>this is a Heading6</h6>
-        <p>this is a Paragraph </p>
-        ภาษาไทย  
+<body>
+    
+    <h1>Workshop #HTML-FORM</h1>
+    <form>
+        <table>
+            <tr>
+                <th><label for="fname">ชื่อ </label></th>
+                <td><input type="text" id="fname"></td>
+            </tr>
 
-    </body>
+            <tr>
+                <th><label for="lname">สกุล</label></th>
+                <td><input type="text" id="lname"></td>
+            </tr>
+
+            <tr>
+                <th><label for="date">วัน/เดือน/ปี</label></th>
+                <td><input type="text" id="date" placeholder="dd/mm/yyyy">
+                <i class="material-symbols-outlined">calendar_month</i>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <th><label for="gender">เพศ</label></th>
+                <td>
+                    <input type="radio" name="gender" value="male">ชาย
+                    <input type="radio" name="gender" value="female">หญิง
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="myfile">รูป</label></th>
+                <td><input type="file" id="myfile" name="Choose File"></td>
+            </tr>
+
+            <tr>
+                <th><label for="home">ที่อยู่</label></th>
+                <td><textarea id="home" cols="35" rows="8"></textarea></td>
+            </tr>
+
+            <tr>
+                <th><label for="color">สีที่ชอบ</label></th>
+                <td>
+                    <select name="list" size="1">
+                        <option value="1">สีแดง</option>
+                        <option value="2">สีฟ้า</option>
+                        <option value="3">สีชมพู</option>
+                        <option value="4">สีเขียว</option>
+                        <option value="5">สีดำ</option>
+                        <option value="6">สีม่วง</option>
+                        <option value="7">สีขาว</option>
+                        <option value="8">สีเหลือง</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="music">แนวเพลงที่ชอบ</label></th>
+                <td>
+                    <input type="radio" name="music" value="1">เพื่อชีวิต
+                    <input type="radio" name="music" value="2">ลูกทุ่ง
+                    <input type="radio" name="music" value="3">อื่นๆ
+                </td>
+            </tr>
+
+            <tr>
+                <th><input type="checkbox" name="consent" id="consent"> ยินยอมให้เก็บข้อมูล</th>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="reset" value="Reset">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
 
 </html>
