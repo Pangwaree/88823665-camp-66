@@ -23,25 +23,24 @@
     <form>
         <table>
             <tr>
-                <th><label for="fname">ชื่อ </label></th>
+                <td><label for="fname">ชื่อ </label></td>
                 <td><input type="text" id="fname"></td>
             </tr>
 
             <tr>
-                <th><label for="lname">สกุล</label></th>
+                <td><label for="lname">สกุล</label></td>
                 <td><input type="text" id="lname"></td>
             </tr>
 
             <tr>
-                <th><label for="date">วัน/เดือน/ปี</label></th>
-                <td><input type="text" id="date" placeholder="dd/mm/yyyy">
-                <i class="material-symbols-outlined">calendar_month</i>
+                <td><label for="date">วัน/เดือน/ปี</label></td>
+                <td><input type="date" id="date" >
                 </td>
                 
             </tr>
 
             <tr>
-                <th><label for="gender">เพศ</label></th>
+                <td><label for="gender">เพศ</label></td>
                 <td>
                     <input type="radio" name="gender" value="male">ชาย
                     <input type="radio" name="gender" value="female">หญิง
@@ -49,17 +48,17 @@
             </tr>
 
             <tr>
-                <th><label for="myfile">รูป</label></th>
+                <td><label for="myfile">รูป</label></td>
                 <td><input type="file" id="myfile" name="Choose File"></td>
             </tr>
 
             <tr>
-                <th><label for="home">ที่อยู่</label></th>
+                <td><label for="home">ที่อยู่</label></td>
                 <td><textarea id="home" cols="35" rows="8"></textarea></td>
             </tr>
 
             <tr>
-                <th><label for="color">สีที่ชอบ</label></th>
+                <td><label for="color">สีที่ชอบ</label></td>
                 <td>
                     <select name="list" size="1">
                         <option value="1">สีแดง</option>
@@ -75,7 +74,7 @@
             </tr>
 
             <tr>
-                <th><label for="music">แนวเพลงที่ชอบ</label></th>
+                <td><label for="music">แนวเพลงที่ชอบ</label></td>
                 <td>
                     <input type="radio" name="music" value="1">เพื่อชีวิต
                     <input type="radio" name="music" value="2">ลูกทุ่ง
@@ -84,14 +83,12 @@
             </tr>
 
             <tr>
-                <th><input type="checkbox" name="consent" id="consent"> ยินยอมให้เก็บข้อมูล</th>
+                <td><input type="checkbox" name="consent" id="consent"> ยินยอมให้เก็บข้อมูล</td>
             </tr>
 
             <tr>
-                <td>
-                    <input type="reset" value="Reset">
-                    <input type="submit" value="Submit">
-                </td>
+                <td><input type="reset" value="Reset"></td>
+                <td><input type="submit" value="Submit"></td>
             </tr>
         </table>
     </form>
