@@ -7,26 +7,22 @@
     <body>
         <div class="container mt-5" >
             <h1>จำนวน 1 ถึง 100 เป็นเลขคู่ หรือ คี่</h1>
-        
-            <div class="row">
-                <div class="h2 col text-end">เลข 1</div>
-                <div class="h2 col text-start">เป็นเลขคี่</div>
-            </div>
-            <?php
-            for($i=1; $i <= 100; $i++){
-            ?>
-            <div class="row">
-                <div class="h2 col text-end"> เลข <?php echo $i ?></div>
                 <?php
-                if($i % 2 = 0){
-                   $ans = "เลขคู่";
-                }else
-                $ans = "เลขคี่";
+                for($i=1; $i <= 100; $i++;){
                 ?>
-                <div class="h2 col text-start"><?php echo $ans ?></div>
+                <div class="row">
+                <div class="h2 col text-end">เลข <?php echo $i ?></div>
+                <?php
+                if($i % 2 == 0){
+                 $a = "เลขคู่";
+                }else{
+                 $a = "เลขคี่";
+                }
+                ?>
+                <div class="h2 col text-start"><?php echo $a ?></div>
             </div>
             <?php
-            }
+                }
             ?>
          </div>
     </body>
