@@ -2,22 +2,36 @@
 <html>
 
 <head>
-    <title>Page <Title></Title>
-        <meta charset="UTF-8"/>
-        <script> src = "/Applications/XAMPP/xamppfiles/htdocs/88823665-camp-66/js/bootstrap.min.js"</script>
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <script src="js/bootstrap.min.js"></script>
-
+  <title>Page <Title></Title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="mystyle.css" rel="stylesheet"/>
 </head>
 
 <body>
   <div class="container mt-3">
+    <form>
+      <div class="mb-3 row">
+        <div class="col-4">
+          <label for="Fname" class="form-label">ชื่อ</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ชื่อ" aria-label="First name">
+        </div>
+      </div>
+  </div>
+
+  <div class="container mt-3">
     <div class="mb-3 row">
       <div class="col-4">
-        <label for="inputEmail4" class="form-label">ชื่อ</label>
+        <label for="Lname" class="form-label">นามสกุล</label>
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="ชื่อ" aria-label="First name">
+        <input type="text" class="form-control" aria-label="last name">
       </div>
     </div>
   </div>
@@ -25,13 +39,154 @@
   <div class="container mt-3">
     <div class="mb-3 row">
       <div class="col-4">
-        <label for="inputEmail4" class="form-label">นามสกุล</label>
+        <label for="date" class="form-label">วัน/เดือน/ปี</label>
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="" aria-label="last name">
+        <input type="date" class="form-control" aria-label="date">
       </div>
     </div>
   </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <label for="age" class="form-label">อายุ</label>
+      </div>
+      <div class="col">
+        <input type="number" class="form-control" aria-label="age">
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <label for="gender" class="form-label">เพศ</label>
+      </div>
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="male">
+          <label class="form-check-label" for="male">
+            ชาย
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="female" checked>
+          <label class="form-check-label" for="female">
+            หญิง
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <label for="inputEmail4" class="form-label">รูป</label>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <input class="form-control" type="file" id="formFile">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <label for="address" class="form-label">ที่อยู่</label>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <textarea class="form-control" id="address" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <label for="FavColor" class="form-label">สีที่ชอบ</label>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <select class="form-select" aria-label="FavColor">
+            <option value="1">สีแดง</option>
+            <option value="2">สีฟ้า</option>
+            <option value="3">สีเหลือง</option>
+            <option value="4">สีม่วง</option>
+            <option value="5">สีเขียว</option>
+            <option value="6">สีชมพู</option>
+            <option value="7">สีดำ</option>
+            <option value="8">สีขาว</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+        <label for="music" class="form-label">เพลงที่ชอบ</label>
+      </div>
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="m1">
+          <label class="form-check-label" for="m1">
+            เพื่อชีวิต
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="m2" checked>
+          <label class="form-check-label" for="m2">
+            ลูกทุ่ง
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="other" checked>
+          <label class="form-check-label" for="other">
+            อื่นๆ
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mb-3 row">
+      <div class="col-4">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="accept" id="m1">
+        <label class="form-check-label" for="m1">
+          ยืนยันให้เก็บข้อมูล
+        </label>
+      </div>
+    </div>
+  </div>
+
+      <div class="container mt-3">
+        <div class="mb-3 row">
+          <div class="col-4">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+          <div class="col">
+            <div class="form-check">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </form>
 </body>
 
 </html>
