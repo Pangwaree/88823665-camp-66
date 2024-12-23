@@ -8,7 +8,7 @@
         <div class="container mt-5" >
             <h1>จำนวน 1 ถึง 100 เป็นเลขคู่ หรือ คี่</h1>
                 <?php
-                for($i=1; $i <= 100; $i++;){
+                for($i=1; $i <= 100; $i++){
                 ?>
                 <div class="row">
                 <div class="h2 col text-end">เลข <?php echo $i ?></div>
