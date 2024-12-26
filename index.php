@@ -67,6 +67,7 @@
         $my_array2[] = 4;
         $my_array2[] = 5;
         print_r($my_array2)
+        
         echo "<br>";
         $my_array3 = array(1,2,3,"myindex" => 4, 0 => 9);
         $my_array3["myindex"] = 1;
