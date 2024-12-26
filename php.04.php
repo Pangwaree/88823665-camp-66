@@ -7,27 +7,29 @@
 </head>
 
 <body>
-<div class="container mt-3">
+    <div class="container mt-3">
         <form method="post" action="">
-                <div class="mb-3 row">
-                    <div class="col-4">
-                        <label for="nickname" class="form-label">ชื่อเล่น</label>
+            
+            <div class="container mt-3">
+                <div class="mb-2 row">
+                    <div class="col-2">
+                        <h4><label for="textarea" class="form-label">เริ่ม</label></h4>
                     </div>
                     <div class="col">
                         <div class="mb-3">
-                            <textarea name="nickname" class="form-control" id="textarea" rows="3"></textarea>
+                            <textarea name="start" class="form-control" id="textarea" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
 
                 <div class="container mt-3">
-                    <div class="mb-3 row">
-                        <div class="col-4">
-                            <label for="textarea" class="form-label">สูตรคูณแม่</label>
+                    <div class="mb-2 row">
+                        <div class="col-2">
+                            <h4><label for="textarea" class="form-label">จบ</label></h4>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <textarea name="detail" class="form-control" id="textarea" rows="4"></textarea>
+                                <textarea name="end" class="form-control" id="textarea" rows="2"></textarea>
                             </div>
                         </div>
                     </div>
@@ -37,15 +39,24 @@
                     </div>
         </form>
     </div>
-    
-        <div class="container mt-5">
-        
-        <h1>ชื่อเล่น : <?php echo isset(($_POST['nickname'])) ? $_POST['nickname'];"" ?></h1>
-        <h1>สูตรคูณ : <?php echo isset(($_REQUEST['detail'])) ? $_REQUEST['detail'] : "" ?></h1>
+
+    <div class="container mt-5">
         <?php
-        for ($i = 1; $i <= 12; $i++) {
-            echo "$detail x $i = ",($detail * $i);
-            echo "<br>";
+
+        $start = isset($_POST['start']) ? $_POST['start'] : 0;
+        $end = isset($_POST['end']) ? $_POST['end'] : 0;
+        ?>
+        <h5>เริ่ม : <?php echo $start ?></h5>
+        <h5>จบ : <?php echo $end ?></h5>
+        <?php
+        for ($i = $start; $i <= $end; $i++) {
+            if ($i % 2 == 0) {
+                $a = "เลขคู่";
+            } else {
+                $a = "เลขคี่";
+            }
+            echo "เลข $i ";
+            echo $a,"<br>";
         }
         ?>
     </div>
