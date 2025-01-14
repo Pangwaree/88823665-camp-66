@@ -4,7 +4,7 @@ use App\Http\Controllers\MyController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.default');
 });
 
 Route::get('/hello', function () {
