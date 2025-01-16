@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 class MyController extends Controller
 {
     //
-    function myfunction(Request $req, $var1=" "){
-        $data['value_id'] = $var1;
-        $data['myinput'] = $req -> input('myinput');
-        return view('myview',$data);
+    function myfunction( Request $request){
+        $input = $request->input('number',1);
+        $multiplication_table = [];
+        for ($i = 1; $i <= 12; $i++) {
+        $multiplication_table[] = $input*$i;   
+        }
+    
+        return view('myview',$multiplication_table, ['number' => $input, 'multiplication_table' => $multiplication_table]);
     }
 }

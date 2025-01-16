@@ -1,40 +1,33 @@
-<h1>สูตรคูณ</h1>
-<?php echo $value_id; ?>
-{{$value_id;}}{{$myinput}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>สูตรคูณ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
 
-<form action="{{url('/mycontroller')}}" 
-    method="post"> 
-    @csrf
- <body>
-<div class="container mt-3">
-        <form method="post" action="">
-                <div class="container mt-3">
-                    <div class="mb-2 row">
-                        <div class="col-2">
+    <div class="container mt-3">
+        <h1>สูตรคูณ</h1>
 
-                        </div>
-                        <div class="col">
-                            <div class="mb-3">
-                                <textarea name="detail" class="form-control" id="textarea" rows="3"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <button class="btn btn-success" type="submit">Submit</button>
-                    </div>
+        <form method="POST" action="{{url('/mycontroller')}}">
+            @csrf
+            <div class="mb-3">
+                <label for="number" class="form-label">เลขที่ต้องการคูณ:</label>
+                <input type="number" class="form-control" id="number" name="number" required>
+            </div>
+            <button type="submit" class="btn btn-primary">คำนวณ</button>
         </form>
+
+        @if(isset($multiplication_table))
+            <h2>สูตรคูณ : {{ $number }}</h2>
+            <ul class="list-group">
+                @foreach($multiplication_table as $i => $result)
+                    <li class="list-group-item">{{ $number }} x {{ $i + 1 }} = {{ $result }}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
-    
-        <div class="container mt-5">
-        <?php
-        $detail = isset($_POST['detail']) ? $_POST['detail'] : 0;
-        ?>
-        <h2>สูตรคูณ : <?php echo $detail ?></h2>
-        <?php
-        for ($i = 1; $i <= 12; $i++) {
-            echo "$detail x $i = ",($detail * $i),"<br>";
-        }
-        ?>
-    </div>
+
+
 </body>
+</html>
