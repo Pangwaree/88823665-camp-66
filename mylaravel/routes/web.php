@@ -42,7 +42,7 @@ Route::get(
     '/',
     [HomeController::class, 'index']
 );
-Route::get(
-    '/user',
-    [UserController::class, 'index']
-);
+Route::get('/cause-error', function () {
+    abort(500);
+});
+
