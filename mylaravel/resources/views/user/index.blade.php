@@ -8,14 +8,14 @@
                   <!-- /.card-header -->
                   <div class="card-body">
                     <table class="table table-bordered">
-                      <thead>
+                    <thead class="table-primary">
                         <tr>
                           <th style="width: 10px">#</th>
                           <th>Name</th>
                           <th>Email</th>
-                          <th style="width: 240px">Label</th>
+                          <th style="width: 240px">Option</th>
                         </tr>
-                      </thead>
+                      
                       <tbody>
                         <?php foreach($users as $index => $user) {?>
                         <tr class="align-middle">
@@ -26,11 +26,17 @@
                             <a href="{{url('/user/'.$user->id)}}">
                             <button class="btn btn-warning">Edit</button>
                             </a>
-                            <button class="btn btn-danger">Delete</button>
+                            <form action="{{url('/user')}}" method="post" style="display:inline;">
+                              @csrf
+                              @method('delete')
+                            <input type="hidden" name="id" value="{{ $user->id}}">
+                            <button type ="submit"class="btn btn-danger">Delete</button>
+                          </form>
                           </td>
                         </tr>
                           <?php } ?>
                       </tbody>
+                    </thead>
                     </table>
                   </div>
                   <!-- /.card-body -->

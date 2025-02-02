@@ -29,4 +29,9 @@ class UserController extends Controller
         $muser->save();
         return redirect('/users');
     }
+    function delete(Request $req){
+        $muser = User::find($req->id);
+        $muser->delete();
+        return redirect('/users');
+    }
 }

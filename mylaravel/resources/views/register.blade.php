@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="register-page">
+<div class="register-page" style="background-color:rgb(206, 216, 255)">
     <div class="register-box">
         <div class="register-logo">
           <a href="../index2.html"><b>Admin</b>LTE</a>
