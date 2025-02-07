@@ -28,7 +28,7 @@
                   <a href="{{url('/user/'.$user->id)}}">
                     <button class="btn btn-warning">Edit</button>
                   </a>
-                  <form action="{{url('/user')}}" onsubmit="return confirm_delete()" method="post" style="display:inline;">
+                  <form action="{{url('/user')}}" method="post" style="display:inline;" onsubmit="confirm_delete(event)">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="id" value="{{ $user->id}}">
@@ -60,15 +60,12 @@
 
 @section('scripts')
 <script>
-  function confirm_delete(){  //อีกแบบ confirm_delete = function(){ }
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "btn btn-danger"
-      },
-      buttonsStyling: false
-    });
-    swalWithBootstrapButtons.fire({
+  function confirm_delete(event) {  
+    event.preventDefault(); // ป้องกันไม่ให้ฟอร์มส่งค่าโดยอัตโนมัติ
+
+    const form = event.target; // ดึงฟอร์มที่ถูกกดลบ
+
+    Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -76,26 +73,26 @@
       confirmButtonText: "Yes, delete it!",
       cancelButtonText: "No, cancel!",
       reverseButtons: true
-    }).then((result) => { //result คือ function
+    }).then((result) => {
       if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire({
+        Swal.fire({
           title: "Deleted!",
           text: "Your User has been deleted.",
           icon: "success"
+        }).then(() => {
+          form.submit(); // ส่งฟอร์มเพื่อลบข้อมูล
         });
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire({
+      } else {
+        Swal.fire({
           title: "Cancelled",
-          text: "Your User ist'n delete :)",
+          text: "Your User isn't deleted :)",
           icon: "error"
         });
       }
     });
-    }
+  }
 </script>
+
 
 
 @endsection

@@ -19,39 +19,45 @@
                   ok
                 </div>
                 <div class ="invalid-feedback" id="invalid-name">
-                  กรุณาระบุข้อมูล Name
+                  กรุณาระบุชื่อ
                 </div>
               </div>
 
               <div class="input-group mb-3">
                 <input type="email" name="email" id ="email" class="form-control" placeholder="Email" />
                 <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+                <div class="invalid-feedback" id="invalid-email">กรุณากรอกอีเมลที่ถูกต้อง</div>
               </div>
+
               <div class="input-group mb-3">
                 <input type="password" name="password" id ="password" class="form-control" placeholder="Password" />
                 <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+                <div class="invalid-feedback" id="invalid-password">รหัสผ่านต้องมี ตัวเลข, ตัวพิมพ์เล็ก และตัวพิมพ์ใหญ่</div>
               </div>
               <!--begin::Row-->
               <div class="row">
                 <div class="col-8">
                   <div class="form-check">
-                    <input class="form-check-input" id = "mycheckbox" type="checkbox" value="" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <input class="form-check-input" id = "mycheckbox" type="checkbox"/>
+                    <label class="form-check-label" for="mycheckbox" >
                       I agree to the <a href="#">terms</a>
                     </label>
                   </div>
-                </div>
+                  <div class="invalid-feedback d-block" id="invalid-checkbox" style="display: none; color: blue;">
+                กรุณายอมรับเงื่อนไขก่อนสมัครสมาชิก
+            </div>
+            </div>
                 <!-- /.col -->
                 <div class="col-4">
                   <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    <button type="submit" class="btn btn-primary" onclick="myfunction()">Sign In</button>
                   </div>
                 </div>
                 <!-- /.col -->
               </div>
               <!--end::Row-->
             </form>
-           <button class="btn" onclick="myfunction()"> Click me </button>
+           
             <!-- /.social-auth-links -->
             <p class="mb-0">
               <a href="login.html" class="text-center"> I already have a membership </a>
@@ -91,40 +97,57 @@ console.log(myarry)
 for(a=1;a<10;a++){
   console.log(a)
 }
+</script>
 
-//function clickme(){
-  //document.getElementById('name');
-    //name.value = "new test"
-    //name = $('#name').val("new with jquery") //เรียกidใช้#
-    //$('name').addClass('is-invalid') //error
-    //$('name').addClass('is-valid') //ok
-    //email format @[a-z].[a-z]
-    //password format [0-9][a-z][A-Z]
-  //return false;
-//}
+<script>
+function myfunction() {
+  let name = $('#name');
+  let email = $('#email');
+  let password = $('#password');
+  let mycheckbox = $('#mycheckbox');
 
-function myfunction(){
-  let name = document.getElementById('name')
-  name = $('#name')
-  let email = document.getElementById('email')
-  let password = document.getElementById('password')
-  let mycheckbox = document.getElementById('mycheckbok')
-  //name.value = "My Name Value"
-  //name.val("My Name Value")
-  console.log(name.val(), email.value, password.value, mycheckbox.checked)
-  if(name.val() == " "){
+  let isValid = true;
+
+  // ตรวจสอบ Name
+  if (name.val().trim() === "") {
     name.addClass('is-invalid');
-    $('#invalid-name').html("<b> กรุณากรอกชื่อ </b>") //เป็นการเปลี่ยนข้อความ
-    return false; //ถ้าค่าผิดจะไม่ส่งค่า
-  }else{
+    $('#invalid-name').show();
+    isValid = false;
+  } else {
     name.removeClass('is-invalid');
   }
- return true;
-}
 
-//$(document).ready(function(){
-  //alert("Hello world!")
-//})
+  // ตรวจสอบ Email (ต้องมี @ และ .)
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email.val())) {
+    email.addClass('is-invalid');
+    $('#invalid-email').show();
+    isValid = false;
+  } else {
+    email.removeClass('is-invalid');
+
+  }
+
+  // ตรวจสอบ Password (ต้องมี ตัวเลข, ตัวพิมพ์เล็ก, ตัวพิมพ์ใหญ่)
+  let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+  if (!passwordPattern.test(password.val())) {
+    password.addClass('is-invalid');
+    $('#invalid-password').show();
+    isValid = false;
+  } else {
+    password.removeClass('is-invalid');
+  }
+
+  // ตรวจสอบ Checkbox (ต้องถูกเลือก)
+  if (!mycheckbox.is(':checked')) {
+        $('#invalid-checkbox').show();
+        isValid = false;
+    } else {
+      mycheckbox.removeClass('invalid-checkbox');
+    }
+
+    return isValid;
+}
 </script>
 
 
