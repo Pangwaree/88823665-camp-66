@@ -13,16 +13,14 @@ class LoginController extends Controller
         return view('login');
     }
     function login(Request $req){
-        //print_r($req->emaill);
-        //print_r($req->password);
-        //return redirect('/');
+        //print_r($req->input());
         $user = User::where('email',$req->email)->first();
-        if(Hash::check($req->password, $user -> password)){
-            session()->forget('error');
-            session((['user' => $user]));
-            return redirect('/');
+        if($user != null && Hash::check($req->password, $user -> password)){
+            $req->session()->put('user',$user);
+            //session((['user' => $user]));
+            return redirect('/users');
         }else{
-            session((['error' => 'ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง']));
+            $req->session()->flash('error', 'ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง');
             return view('login',['email'=>$req->email ]);
             //return redirect('/login');
         }

@@ -11,14 +11,8 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
                 <?php
-                $error = session()->get('error');
-                if($error){
-                    ?>
-                    <div class="text-danger">
-                        {{$error}}
-                    </div>
-                    <?php
-                }
+                    $error = session('error');
+                    echo "<h3 class='text-denger'>".$error."</h3>";
                 ?>
                 <form action="{{ url('/login') }}" method="post">
                     @csrf
@@ -50,7 +44,6 @@
                 </form>
                 
                 <!-- /.social-auth-links -->
-                <p class="mb-1"><a href="forgot-password.html">I forgot my password</a></p>
                 <p class="mb-0">
                     <a href="register.html" class="text-center"> Register a new membership </a>
                 </p>

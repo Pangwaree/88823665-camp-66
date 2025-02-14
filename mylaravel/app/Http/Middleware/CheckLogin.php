@@ -15,9 +15,9 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = session()->get('user');
+        $user = session('user');
         
-        if(!isset($user->id)){
+        if($user == null || $user->id == null){
             return redirect('/login');
         }
         return $next($request);

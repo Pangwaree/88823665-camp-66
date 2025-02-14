@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->id(); //primary key
             $table->string('name');
         });
 
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned()->index();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('name');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); //foreign key
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //foreign key
         });
 
     }
@@ -35,7 +35,7 @@ return new class extends Migration
     {
         //
 
-        Schema::dropIfExists('product_list');
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('product_list'); 
+        Schema::dropIfExists('categories'); 
     }
 };

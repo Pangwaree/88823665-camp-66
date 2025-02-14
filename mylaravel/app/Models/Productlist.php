@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Productlist extends Model
+class ProductList extends Model
 {
     //
     protected $table = "product_list";
+    public $timestemps = false;
 }
