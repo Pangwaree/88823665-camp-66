@@ -12,7 +12,7 @@
                 <p class="login-box-msg">Sign in to start your session</p>
                 <?php
                     $error = session('error');
-                    echo "<h3 class='text-denger'>".$error."</h3>";
+                    echo "<h5 class='text-danger'>".$error."</h5>";
                 ?>
                 <form action="{{ url('/login') }}" method="post">
                     @csrf

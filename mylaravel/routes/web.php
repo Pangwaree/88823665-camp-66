@@ -58,6 +58,7 @@ Route::middleware([CheckLogin::class])->group(function(){
     Route::get('/user/{id}',[UserController::class, 'edit']);
     Route::put('/user',[UserController::class, 'edit_action']);
     Route::delete('/user',[UserController::class, 'delete']);
+    
     Route::get('/product', [ProductController::class, 'index']);
     Route::post('/product', [ProductController::class, 'add_product']);
 
