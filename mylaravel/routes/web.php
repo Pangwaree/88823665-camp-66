@@ -49,9 +49,11 @@ Route::post('/register',
 
 Route::get(
     '/home',
-    [HomeController::class, 'index']);
+    [HomeController::class, 'index'])->middleware([CheckLogin::class]);
+
 Route::get('/',
     [HomeController::class, 'index'])->middleware([CheckLogin::class]);
+
 
 Route::middleware([CheckLogin::class])->group(function(){
     Route::get('/users',[UserController::class, 'index']);

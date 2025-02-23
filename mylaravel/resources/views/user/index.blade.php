@@ -1,7 +1,7 @@
 @extends('layouts.default_with_menu')
 
 @section('content')
-<h1>{{ session('user')->name }}</h1>
+<!-- <h1>{{ session('user')->name }}</h1> -->
 <div class="row">
   <div class="col-md-12">
     <div class="card mb-12">
@@ -61,7 +61,7 @@
 
 @section('scripts')
 <script>
-  function confirm_delete(event) {  
+  function confirm_delete(event) {
     event.preventDefault(); // ป้องกันไม่ให้ฟอร์มส่งค่าโดยอัตโนมัติ
 
     const form = event.target; // ดึงฟอร์มที่ถูกกดลบ

@@ -10,7 +10,9 @@ class ProductController extends Controller
 {
     //
     function index(){
-        return view('product');
+        $categories = Category::with('products')->get();
+        return view('product', compact('categories'));  
+        //return view('product');
     }
     function add_product(Request $req){
         $category = new Category();
@@ -19,10 +21,12 @@ class ProductController extends Controller
 
         foreach($req->product_name as $value){
             $product = new ProductList();
+            $product->name = $value;
             $product->category_id = $category->id;
             $product->user_id = session('user')->id;
             $product->save();
         }
+    
        return redirect('/product');
     }
 }

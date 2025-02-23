@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::create('categories', function (Blueprint $table) {
-            $table->id(); //primary key
+            $table->id(); //primary key ใช้คำว่า id ได้เลย
             $table->string('name');
         });
 
